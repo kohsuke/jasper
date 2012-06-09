@@ -461,6 +461,10 @@ abstract class Attribute {
    String[] browseInterfaceMethodrefs() {
       return null;
    }
+
+    public String toString() {
+        return pool.toString(attributeIndex);
+    }
 }
 
 /* --- Copyright (c) Chris Rathman 1999. All rights reserved. -----------------
