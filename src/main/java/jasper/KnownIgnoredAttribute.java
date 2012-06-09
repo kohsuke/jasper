@@ -12,6 +12,7 @@ import java.io.IOException;
 public class KnownIgnoredAttribute extends Attribute {
    public KnownIgnoredAttribute(DataInputStream ios, Pool_Collection pool, int attributeIndex) throws IOException {
       super(ios, pool, attributeIndex);
+       ios.readFully(new byte[length]);
    }
 }
 
