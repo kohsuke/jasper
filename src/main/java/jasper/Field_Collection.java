@@ -7,6 +7,8 @@
 package jasper;
 import java.io.*;
 
+import static jasper.ReservedWords.apos;
+
 /*=======================================================================
  = Class:         Field_Collection                                      =
  =                                                                      =
@@ -111,7 +113,7 @@ class Field {
     -----------------------------------------------------------------------*/
    void jasmin(PrintStream out) throws IOException {
       out.println(ClassFile.pad(".field", ClassFile.SPACER) + accessString() +
-         pool.toString(nameIndex) + " " + pool.toString(descriptorIndex) +
+         apos(pool.toString(nameIndex)) + " " + pool.toString(descriptorIndex) +
          attributes.jasminConstantValue());
    }
 

@@ -7,6 +7,8 @@
 package jasper;
 import java.io.*;
 
+import static jasper.ReservedWords.apos;
+
 /*=======================================================================
  = Class:         Method_Collection                                     =
  =                                                                      =
@@ -144,7 +146,7 @@ class Method {
    void jasmin(PrintStream out) throws IOException {
       // output the .method directive
       out.println(ClassFile.pad(".method", ClassFile.SPACER) + accessString() +
-         pool.toString(nameIndex) + pool.toString(descriptorIndex));
+              pool.toString(nameIndex) + pool.toString(descriptorIndex));
 
       // output the code,
       attributes.jasmin(out);
