@@ -123,7 +123,8 @@ class Attribute_Collection {
       {"LineNumberTable",    Attribute_LineNumberTable.class},
       {"LocalVariableTable", Attribute_LocalVariableTable.class},
       {"SourceFile",         Attribute_SourceFile.class},
-      {"Synthetic",          Attribute_Synthetic.class}
+      {"Synthetic",          Attribute_Synthetic.class},
+      {"StackMapTable",      KnownIgnoredAttribute.class},
    };
 
    /*-----------------------------------------------------------------------
