@@ -319,7 +319,7 @@ abstract class Attribute {
       this.attributeIndex = attributeIndex;
 
       // read the length of the attribute
-      int length = ios.readInt();
+      this.length = ios.readInt();
    }
 
    /*-----------------------------------------------------------------------
