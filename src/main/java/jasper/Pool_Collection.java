@@ -174,20 +174,24 @@ abstract class Pool {
     - Desc:          replace unprintable chars with octal constant (\xxx)  -
     -----------------------------------------------------------------------*/
    static String escapeString(String raw) {
-      String retVal = raw;
-      for (int i = 0; i < retVal.length(); i++) {
-         if ((retVal.charAt(i) < ' ') || (retVal.charAt(i) > '~') || (retVal.charAt(i) == '\"')) {
-            String s = Integer.toOctalString(retVal.charAt(i));
+      StringBuilder  retVal = new StringBuilder(raw.length()+16);
+      for (int i = 0; i < raw.length(); i++) {
+          char ch = raw.charAt(i);
+          if (ch =='\\') {
+              retVal.append("\\\\");
+              continue;
+          }
+
+         if ((ch < ' ') || (ch > '~') || (ch == '\"')) {
+            String s = Integer.toOctalString(ch);
             while (s.length() < 3) s = '0' + s;
             s = '\\' + s;
-            if (i > 0) {
-               retVal = retVal.substring(0, i) + s + retVal.substring(i+1);
-            } else {
-               retVal = s + retVal.substring(i+1);
-            }
+             retVal.append(s);
+         } else {
+             retVal.append(ch);
          }
       }
-      return retVal;
+      return retVal.toString();
    }
 
    /*-----------------------------------------------------------------------
